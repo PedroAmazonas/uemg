@@ -78,7 +78,7 @@ ts=turtle.Screen()
 #ts.setworldcoordinates(0, 0,1000,)
 t.screen.setup (width=800, height=600, startx=0, starty=0)
 t.pendown			
-#Triangulo(t,90)
+Triangulo(t,90)
 def funcao(x):
 	ts.clear
 	t.goto(-x,x)
