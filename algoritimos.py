@@ -35,7 +35,7 @@ def salario():
 	dias=int(input("quantas dias você trabalhou"))
 	salario=dias*8*25
 	print(f"salario: {salario}")
-#salario()
+salario()
 
 def fatorial():
 	num=int(input('Dijite um numero'))
