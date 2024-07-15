@@ -1,4 +1,5 @@
 import turtle,matplotlib,numpy
+import matplotlib.pyplot
 def media():
 	media=0
 	notas=[]
@@ -75,21 +76,23 @@ def Triangulo(t,side,retas):
 		t.forward(side)
 		t.left(n)
 	t.clear()	
-t= turtle.Turtle()	
-ts=turtle.Screen()
-#ts.setworldcoordinates(0, 0,1000,)
-t.screen.setup (width=800, height=600, startx=-5, starty=-5)
-t.pendown			
+	t= turtle.Turtle()	
+	ts=turtle.Screen()
+	ts.exitonclick()	
+	#ts.setworldcoordinates(0, 0,1000,)
+	t.screen.setup (width=800, height=600, startx=-5, starty=-5)
+	t.pendown			
 #Triangulo(t,90)
 def funcao(a,b,c):
-	x=numpy.linspace(-10,10,400)
+	x=numpy.linspace(-20,20,400)
 	y=a*x**2+b*x+c
-	matplotlib.xlabel("X")
-	matplotlib.ylabel("f(X)")
-	matplotlib.title("Função de Segundo Grau")
-	matplotlib.grid(True)
-	matplotlib.show()
-funcao(2,23,3)
+	matplotlib.pyplot.xlabel("X")
+	matplotlib.pyplot.ylabel("f(X)")
+	matplotlib.pyplot.title("Função de Segundo Grau")
+	matplotlib.pyplot.grid(True)
+	matplotlib.pyplot.plot(x,y)
+	matplotlib.pyplot.show()
+funcao(2,2,3)
 def Barra(t,heigth):
 	def drawBar(t, height):
 		""" Get turtle t to draw one bar, of height. """
@@ -112,4 +115,3 @@ def Barra(t,heigth):
 	for a in xs:
 		drawBar(t, a)
 #Barra(t,25)		
-ts.exitonclick()	
