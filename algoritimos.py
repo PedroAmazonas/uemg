@@ -82,7 +82,7 @@ t.screen.setup (width=800, height=600, startx=-5, starty=-5)
 t.pendown			
 #Triangulo(t,90)
 def funcao(a,b,c):
-	x=numpy.linespace(-10,10,400)
+	x=numpy.linspace(-10,10,400)
 	y=a*x**2+b*x+c
 	matplotlib.xlabel("X")
 	matplotlib.ylabel("f(X)")
