@@ -92,11 +92,11 @@ def funcao(a,b,c):
 	matplotlib.pyplot.grid(True)
 	matplotlib.pyplot.plot(x,y)
 	matplotlib.pyplot.show()
-funcao(2,2,3)
+#funcao(2,2,3)
 def Barra(t,heigth):
 	def drawBar(t, height):
-		""" Get turtle t to draw one bar, of height. """
-		t.begin_fill()               # start filling this shape
+		
+		t.begin_fill()              
 		t.left(90)
 		t.forward(height)
 		t.write(str(height))
@@ -105,13 +105,42 @@ def Barra(t,heigth):
 		t.right(90)
 		t.forward(height)
 		t.left(90)
-		t.end_fill()                 # stop filling this shape
+		t.end_fill()                 
 
-	xs = [88,48, 117, 200, 240, 160, 260, 220]  #
+	xs = [88,48, 117, 200, 240, 160, 260, 220]  
 	maxheight = max(xs)
 	numbars = len(xs)
 	border = 10
-	ts.setworldcoordinates(0-border, 0-border, 40*numbars+border, maxheight+border)
+	
 	for a in xs:
 		drawBar(t, a)
 #Barra(t,25)		
+
+import numpy as np
+import random
+from copy import copy
+def regra_de_cramer(parametros, igualdaes):
+    det_parametros = np.linalg.det(parametros)
+    if det_parametros == 0:
+        raise ValueError("O sistema não tem solução única (determinante é zero).")
+    resultados = []
+    for i in range(3): 
+        matriz_substituida = np.copy(parametros) 
+        matriz_substituida[:, i] = igualdaes 
+        det_substituida = np.linalg.det(matriz_substituida) 
+        resultados.append(det_substituida / det_parametros)
+    return resultados
+icognitas=["x","y","z"]
+parametros = np.array([[0, 0, 0],
+              [0,  0, 0],
+              [0,  0, 0]])
+for i in range(3):
+	for j in range(3):	
+		print(f"Para a {i+1}° equação dijite o parametro de {icognitas[j]}",end=" ")
+		parametros[i,j]=int(input(""))
+resultados = [0,0,0]
+for i in range(3):
+	print(f"resultado da {i+1}° equação",end=" ")
+	resultados[i]=int(input(""))
+resolucao = regra_de_cramer(parametros, resultados)
+print(f"Resultados: x = {resolucao[0]}, y = {resolucao[1]}, z = {resolucao[2]}")
